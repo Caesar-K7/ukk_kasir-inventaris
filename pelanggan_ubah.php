@@ -8,7 +8,7 @@
 
           $query = mysqli_query($koneksi, "UPDATE pelanggan set nama_pelanggan='$nama', alamat='$alamat', no_telepon='$no_telepon' WHERE id_pelanggan=$id");
           if($query) {
-               echo '<script>alert("Ubah data berhasil")</script>';
+               echo '<script>alert("Ubah data berhasil"); location.href="?page=pelanggan"</script>';
           }else{
                echo '<script>alert("Ubah data gagal")</script>';
 

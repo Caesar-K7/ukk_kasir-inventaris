@@ -6,7 +6,7 @@
 
           $query = mysqli_query($koneksi, "INSERT INTO produk(nama_produk,harga,stok) values('$nama','$harga','$stok')");
           if($query) {
-               echo '<script>alert("Tambah data berhasil")</script>';
+               echo '<script>alert("Tambah data berhasil"); location.href="?page=produk"</script>';
           }else{
                echo '<script>alert("Tambah data gagal")</script>';
 

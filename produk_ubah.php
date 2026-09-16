@@ -7,7 +7,7 @@
 
           $query = mysqli_query($koneksi, "UPDATE produk set nama_produk='$nama', harga='$harga', stok='$stok' WHERE id_produk=$id");
           if($query) {
-               echo '<script>alert("Tambah data berhasil")</script>';
+               echo '<script>alert("Tambah data berhasil"); location.href="?page=produk"</script>';
           }else{
                echo '<script>alert("Tambah data gagal")</script>';
 

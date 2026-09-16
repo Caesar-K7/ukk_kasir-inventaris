@@ -18,7 +18,7 @@
                if($val >0) {
                $sub = $val * $pr['harga'];
                $total += $sub;
-               $query = mysqli_query($koneksi, "INSERT INTO detail_penjualan(id_penjualan,id_produk,jumlah_produk,sub_total) values('$id_penjualan', '$key', '$val', '$sub')");
+               $query = mysqli_query($koneksi, "INSERT INTO detail_penjualan(id_penjualan,id_produk,jumlah_produk,subtotal) values('$id_penjualan', '$key', '$val', '$sub')");
           
                $updateProduk = mysqli_query($koneksi, "UPDATE produk set stok=stok-$val WHERE id_produk=$key");
                }
@@ -31,7 +31,7 @@
 
 
           if($query) {
-               echo '<script>alert("Tambah data berhasil")</script>';
+               echo '<script>alert("Tambah data berhasil"); location.href="?page=pembelian"</script>';
           }else{
                echo '<script>alert("Tambah data gagal")</script>';
 

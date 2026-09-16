@@ -5,9 +5,10 @@ if(isset($_POST['username'])) {
    $username = $_POST['username'];
    $password = md5($_POST['password']);
    $nama = $_POST['nama'];
-   $level = 'admin';
+   $alamat = $_POST['alamat'];
+   $level = 'petugas';
     
-  $insert = mysqli_query($koneksi, "INSERT INTO user(nama,username,password,level) VALUES('$nama','$username','$password','$level')");
+  $insert = mysqli_query($koneksi, "INSERT INTO user(nama,username,password,alamat,level) VALUES('$nama','$username','$password','$alamat',$level')");
 
    if($insert) {
       echo '<script>alert("Register berhasil"); location.href="index.php"</script>';
@@ -44,15 +45,19 @@ if(isset($_POST['username'])) {
                                         <form method="post">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputNama">Nama Lengkap</label>
-                                                <input class="form-control" id="inputNama" type="text" name="nama" placeholder="Masukkan Nama Lengkap"/>
+                                                <input class="form-control" id="inputNama" type="text" name="nama" placeholder="Masukkan Nama Lengkap" required/>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputUsername">Username</label>
-                                                <input class="form-control" id="inputUsername" type="text" name="username" placeholder="Masukkan Username"/>
+                                                <input class="form-control" id="inputUsername" type="text" name="username" placeholder="Masukkan Username" required/>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputPassword">Password</label>
-                                                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Masukkan Password" />
+                                                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Masukkan Password" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputAlamat">Alamat</label>
+                                                <input class="form-control" id="inputAlamat" type="alamat" name="alamat" placeholder="Masukkan Alamat" required />
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <button type="submit" class="btn btn-primary w-100">Register</button>

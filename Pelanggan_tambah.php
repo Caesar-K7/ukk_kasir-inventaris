@@ -6,7 +6,7 @@
 
           $query = mysqli_query($koneksi, "INSERT INTO pelanggan(nama_pelanggan,alamat,no_telepon) values('$nama','$alamat','$no_telepon')");
           if($query) {
-               echo '<script>alert("Tambah data berhasil")</script>';
+               echo '<script>alert("Tambah data berhasil"); location.href="?page=pelanggan"</script>';
           }else{
                echo '<script>alert("Tambah data gagal")</script>';
 
