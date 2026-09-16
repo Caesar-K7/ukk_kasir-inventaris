@@ -1,37 +1,24 @@
 <?php
-include 'koneksi.php';
+include "koneksi.php";
+if(isset($_POST['username'])) {
 
-if (isset($_POST['username'], $_POST['password'])) {
+   $username = $_POST['username'];
+   $password = md5($_POST['password']);
+   $nama = $_POST['nama'];
+   $level = 'admin';
+    
+  $insert = mysqli_query($koneksi, "INSERT INTO user(nama,username,password,level) VALUES('$nama','$username','$password','$level')");
 
-    $nama = $_POST['nama'];
-    $username = mysqli_real_escape_string($con, $_POST['username']);
-    $password = md5($_POST['password']);
-    $alamat = $_POST['alamat'];
-    $level = 'petugas';
+   if($insert) {
+      echo '<script>alert("Register berhasil"); location.href="index.php"</script>';
+   }else{
+       echo '<script>alert("Register gagal.");</script>';
 
-    $insert = mysqli_query(
-        $con,
-        "INSERT INTO user(nama,username,password,alamat,level) VALUES ('$nama','$username','$password','$alamat','$level')
-         "
-    ) or die(mysqli_error($con));
-
-    if ($insert) {
-       echo '<script>
-                alert("Registrasi Berhasil");
-                window.location.href = "index.php";
-              </script>';
-    } else {
-
-        echo '<script>
-                alert("Registrasi Gagal!");
-              </script>';
-    }
+   }
 
 }
+
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,7 +27,7 @@ if (isset($_POST['username'], $_POST['password'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login - SB Admin</title>
+        <title>Register Aplikasi Kasir</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -52,32 +39,28 @@ if (isset($_POST['username'], $_POST['password'])) {
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Register Aplikasi Kasir</h3></div>
                                     <div class="card-body">
                                         <form method="post">
-                                            <div class="form-floating mb-3 form-group">
-                                                <input class="form-control" id="nama" name="nama" type="text" placeholder="Masukan Nama Lengkap" required/>
-                                                <label for="nama">Nama</label>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputNama">Nama Lengkap</label>
+                                                <input class="form-control" id="inputNama" type="text" name="nama" placeholder="Masukkan Nama Lengkap"/>
                                             </div>
-                                            <div class="form-floating mb-3 form-group">
-                                                <input class="form-control" id="username" name="username" type="text" placeholder="Masukan username" required/>
-                                                <label for="username">Username</label>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputUsername">Username</label>
+                                                <input class="form-control" id="inputUsername" type="text" name="username" placeholder="Masukkan Username"/>
                                             </div>
-                                            <div class="form-floating mb-3 form-group">
-                                                <input class="form-control" id="password" name="password" type="password" placeholder="Masukan Password" required/>
-                                                <label for="password">Password</label>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputPassword">Password</label>
+                                                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Masukkan Password" />
                                             </div>
-                                            <div class="form-floating mb-3 form-group" >
-                                                <input class="form-control" id="alamat" name="alamat" type="text" placeholder="Masukan alamat" required/>
-                                                <label for="alamat">Alamat</label>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <button class="btn btn-primary w-100" >Register</button>
+                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <button type="submit" class="btn btn-primary w-100">Register</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="login.php">Sudah punya akun? Login!</a></div>
+                                        <div class="small"><a href="login.php">Sudah Punya Akun? Login!</a></div>
                                     </div>
                                 </div>
                             </div>
