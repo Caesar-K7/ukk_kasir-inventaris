@@ -1,9 +1,15 @@
 <?php
+if (!isset($_SESSION['level']) || $_SESSION['level'] != 'admin') {
+    echo "<script>
+            alert('Fitur ini hanya dapat diakses oleh admin!');
+            window.location.href='?page=pelanggan';
+          </script>";
+    exit;
+}
 $id = $_GET['id'];
 $query = mysqli_query($koneksi, "DELETE FROM produk WHERE id_produk=$id");
- if($query) {
-               echo '<script>alert("Hapus data berhasil"); location.href="?page=produk"</script>';
-          }else{
-               echo '<script>alert("Hapus data gagal")</script>';
-
-          }
+if ($query) {
+     echo '<script>alert("Hapus data berhasil"); location.href="?page=produk"</script>';
+} else {
+     echo '<script>alert("Hapus data gagal")</script>';
+}
