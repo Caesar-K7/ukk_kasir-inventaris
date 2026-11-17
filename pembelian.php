@@ -25,6 +25,7 @@
         <td><?php echo $data['total_harga']; ?></td>
         <td>
           <a href="?page=pembelian_detail&&id=<?php echo $data['id_penjualan']; ?>" class="btn btn-secondary">Detail</a>
+          <a href="?page=pembelian_ubah&&id=<?php echo $data['id_penjualan']; ?>" class="btn btn-warning">Edit</a>
           <a href="?page=pembelian_struk&&id=<?php echo $data['id_penjualan']; ?>" class="btn btn-success">Struk</a>
           <?php if ($_SESSION['level'] == 'admin') { ?>
             <a href="?page=pembelian_hapus&&id=<?php echo $data['id_penjualan']; ?>" class="btn btn-danger" onclick="return confirm('Yakin ingin Mengahpus data ini?');">Hapus</a>

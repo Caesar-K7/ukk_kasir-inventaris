@@ -59,7 +59,7 @@ if (isset($_POST['ubah'])) {
                     <td>
                          <input
                               class="form-control"
-                              value="<?php echo htmlspecialchars($data['nama']); ?>"
+                              value="<?php echo $data['nama']; ?>"
                               type="text"
                               readonly>
                     </td>
@@ -71,7 +71,7 @@ if (isset($_POST['ubah'])) {
                     <td>
                          <input
                               class="form-control"
-                              value="<?php echo htmlspecialchars($data['username']); ?>"
+                              value="<?php echo $data['usernae']); ?>"
                               type="text"
                               readonly>
                     </td>

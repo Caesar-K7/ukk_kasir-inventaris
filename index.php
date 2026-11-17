@@ -97,7 +97,9 @@ if (!isset($_SESSION['user'])) {
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    <?php echo $_SESSION['user']['nama']; ?>
+                    <?php echo $_SESSION['nama']; ?>
+                    <p></p>
+                    <div class="badge fs-6 <?= $_SESSION['level'] === 'admin' ? 'bg-success' : 'bg-primary' ?>"><?= $_SESSION['level'] ?></div>
                 </div>
             </nav>
         </div>

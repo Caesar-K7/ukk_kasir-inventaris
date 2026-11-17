@@ -108,6 +108,9 @@ if (isset($_POST['id_pelanggan'])) {
                <?php
                }
                ?>
+               </table>
+               <hr>
+               <table class="table table-bordered">
                <tr>
                     <td>Diskon</td>
                     <td>:</td>
