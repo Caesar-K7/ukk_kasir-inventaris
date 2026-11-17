@@ -15,6 +15,7 @@ $error = '';
 
 if (isset($_POST['id_pelanggan'])) {
      $id_pelanggan = $_POST['id_pelanggan'];
+     $id_user = $_SESSION['id_user'];
      $produk = $_POST['produk'];
      $bayar = (int)$_POST['uang_bayar'];
      $total = 0;
@@ -38,6 +39,7 @@ if (isset($_POST['id_pelanggan'])) {
           $error = 'Uang yang dibayar kurang RP. ' . number_format($total_bayar - $bayar, 0, ',', '.') . ' (Total Bayar : RP. ' . number_format($total_bayar, 0, ',', '.') . ')';
      } else {
           $query = mysqli_query($koneksi, "INSERT INTO penjualan(tanggal_penjualan,id_pelanggan) values('$tanggal','$id_pelanggan')");
+          $query = mysqli_query($koneksi, "INSERT INTO penjualan(tanggal_penjualan,id_pelanggan,id_user) values('$tanggal','$id_pelanggan','$id_user')");
 
           $idTerakhir = mysqli_fetch_array(mysqli_query($koneksi, "SELECT*FROM penjualan ORDER BY id_penjualan DESC"));
           $id_penjualan = $idTerakhir['id_penjualan'];

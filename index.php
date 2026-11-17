@@ -25,11 +25,9 @@ if (!isset($_SESSION['user'])) {
         <a class="navbar-brand ps-3" href="index.php">Aplikasi Kasir</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-        ```php
         <!-- Navbar Search-->
         <ul class="navbar-nav ms-auto me-3 me-lg-4">
             <?php if (isset($_GET['page']) && $_GET['page'] != 'home') { ?>
-
                 <form method="get" class="d-none d-md-inline-block form-inline me-3 my-2 my-md-0">
                     <div class="input-group">
                         <input
